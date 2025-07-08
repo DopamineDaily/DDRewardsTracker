@@ -1,0 +1,271 @@
+:root {
+  --primary: #3b82f6;
+  --bg: #f9fafb;
+  --text: #222;
+  --sidebar-bg: #e5e7eb;
+  --accent: #10b981;
+  --danger: #ef4444;
+  --border: #d1d5db;
+}
+
+[data-theme="dark"] {
+  --primary: #2563eb;
+  --bg: #18181b;
+  --text: #fafafa;
+  --sidebar-bg: #22223b;
+  --accent: #34d399;
+  --danger: #f87171;
+  --border: #444;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+aside#sidebar {
+  background: var(--sidebar-bg);
+  min-width: 230px;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#reward-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+#reward-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff2;
+  margin-bottom: 0.25rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 5px;
+}
+
+.reward-controls {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.reward-controls button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--primary);
+  padding: 0 0.2rem;
+  font-size: 1.1em;
+}
+
+.reward-controls button.delete {
+  color: var(--danger);
+}
+
+#add-reward-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#add-reward-form input {
+  flex: 1;
+  padding: 0.35rem;
+  font-size: 1em;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+#add-reward-form button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#reset-all,
+#import-data-btn,
+#export-data {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+#reset-all {
+  background: var(--danger);
+}
+
+#undo-snackbar {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#undo-snackbar button {
+  background: #fff2;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#tracker {
+  flex: 1 1 350px;
+  padding: 2rem 2rem 2rem 2.5rem;
+  min-width: 320px;
+}
+
+#reward-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.reward-item {
+  display: flex;
+  align-items: center;
+  background: #fff2;
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--border);
+  gap: 0.5rem;
+}
+
+.reward-checkbox {
+  width: 1.2em;
+  height: 1.2em;
+  accent-color: var(--primary);
+}
+
+.reward-label {
+  flex: 1;
+  font-size: 1.08em;
+}
+
+#streak-info {
+  margin: 1.2rem 0 0.6rem 0;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+#mood-tracker {
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.mood-btn {
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  margin: 0 0.1rem;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.mood-btn.selected {
+  outline: 2px solid var(--accent);
+  transform: scale(1.2);
+}
+
+#activity-log-section {
+  margin-top: 1.5rem;
+}
+
+#activity-log {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 120px;
+  overflow-y: auto;
+  font-size: 0.97em;
+}
+
+#analytics-section {
+  margin-top: 2.2rem;
+}
+
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+  }
+
+  aside#sidebar {
+    min-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+  }
+
+  #tracker {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
+
+  aside#sidebar {
+    padding: 1rem 0.5rem;
+    flex-direction: column;
+  }
+
+  #tracker {
+    padding: 1rem 0.5rem;
+  }
+
+  #reward-items {
+    grid-template-columns: 1fr;
+  }
+}
